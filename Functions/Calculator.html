@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+        function calculator()
+        {
+            let n1=+prompt("Enter the first Number: ")
+            let n2=+prompt("Enter the second Number: ")
+            let operator=prompt("Enter the Operator(+,-,*,%): ")
+            let res
+            if (operator=="+"){
+                res = n1+n2
+            }
+            else if (operator=="-"){
+                res = n1-n2
+            }
+            else if (operator=="*"){
+                res = n1*n2
+            }
+            else if (operator=="%"){
+                res= n1%n2
+            }
+            else{
+                console.log("Invalid Operator")
+            }
+            return res
+        }
+        let res=calculator();
+        console.log(res);
+        
+    </script>
+</body>
+</html>
