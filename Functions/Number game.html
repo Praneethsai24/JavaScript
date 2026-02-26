@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function main(){
+            let secret_number = Math.floor(Math.random()*100)
+            let guess=+prompt("Enter your number: ")
+            if (guess==secret_number){
+                console.log("Correct my Boy!!!")
+            }
+            else if(guess<secret_number){
+                console.log("Umm You're number is small")
+            }
+            else if (guess>secret_number){
+                console.log("You're number is too BIG Gurl!!")
+            }
+        }
+        main();
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+        let secret_number=Math.floor(Math.random()*100)
+        let guess;
+        while (guess!==secret_number){
+            guess=+prompt("Enter the number: ")
+
+            if (guess<secret_number){
+                alert("Umm Your're number is small")
+            }
+            else if(guess>secret_number){
+                alert('Too big gurl')
+            }
+            else if(guess==secret_number){
+                alert("That's my buoi!!")
+            }
+        }
+
+    </script>
+</body>
+</html>
