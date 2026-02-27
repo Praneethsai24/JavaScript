@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Praneeth Sai — ML & Generative AI</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Praneeth Sai — I build deployable ML pipelines and LLM prototypes. Selected projects, demos, and case studies.">
+  <meta property="og:title" content="Praneeth Sai — ML & Generative AI">
+  <meta property="og:description" content="I build deployable ML pipelines and LLM prototypes.">
+  <!-- Replace with your domain image -->
+  <meta property="og:image" content="https://yourdomain.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    /* ---------- VISUAL SYSTEM ---------- */
+    :root{
+      --bg:#0f1115;          /* deep background */
+      --panel:#0f1720;
+      --muted:#9aa4b2;
+      --text:#e6eef6;
+      --accent:#ff5d8f;
+      --accent-2:#ff8fb6;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --mono: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Light fallback if user prefers light */
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #FBF9F6;
+        --panel: #FFFFFF;
+        --muted: #6b6b7a;
+        --text: #202232;
+        --glass: rgba(0,0,0,0.03);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font-family:var(--mono); color:var(--text); background:linear-gradient(180deg,#07111a 0%,var(--bg) 100%);}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1080px; margin:32px auto; padding:28px;}
+
+    /* Header / HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:28px;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(255,93,143,0.06), transparent 40%);
+      padding:28px;
+      border-radius:var(--radius);
+      box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-left h1{
+      font-family: 'Playfair Display', serif;
+      margin:0; font-size:36px; letter-spacing:-0.02em;
+      color:var(--text);
+    }
+    .kicker{ color:var(--accent); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:10px; display:inline-block;}
+    .hero-left p.lead{ margin:12px 0 18px; color:var(--muted); font-size:15px; max-width:62ch; line-height:1.5;}
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap;}
+
+    .btn{
+      border:0; cursor:pointer; padding:10px 14px; border-radius:999px; font-weight:700; font-size:14px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+    }
+    .btn-primary{ background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; transform: translateZ(0); }
+    .btn-ghost{ background: transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); }
+
+    /* portrait */
+    .portrait-wrap{ display:flex; align-items:center; justify-content:center; }
+    .portrait{
+      width:280px; height:280px; border-radius:14px; object-fit:cover; box-shadow: 0 16px 60px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Grid for projects + side */
+    .grid{ display:grid; grid-template-columns: 1fr 320px; gap:28px; margin-top:28px; align-items:start; }
+
+    /* Projects list */
+    .projects { display:flex; flex-direction:column; gap:16px; }
+    .project{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:18px; border-radius:12px; display:flex; gap:14px; align-items:flex-start;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .project h3{ margin:0; font-size:18px; color:var(--text); }
+    .project .meta{ color:var(--muted); font-size:13px; margin-top:6px; }
+    .pill{ font-size:12px; padding:6px 8px; border-radius:999px; background:var(--glass); color:var(--muted); margin-right:8px; display:inline-block; }
+
+    .project-ctas{ margin-left:auto; display:flex; gap:8px; }
+    .small-muted{ color:var(--muted); font-size:13px; margin-top:6px; }
+
+    /* Side column */
+    .side-card{ background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); }
+    .side-card h4{ margin:0 0 8px 0; font-size:15px; color:var(--text); }
+    .skill-list{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .skill{ padding:6px 8px; background:rgba(255,255,255,0.02); border-radius:999px; color:var(--muted); font-size:13px; }
+
+    footer{ margin-top:28px; color:var(--muted); font-size:13px; text-align:center; }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero, .grid{ grid-template-columns: 1fr; }
+      .portrait{ width:220px; height:220px; margin:0 auto; }
+      .project-ctas{ margin-left:0; margin-top:10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <header class="hero" role="banner">
+      <div class="hero-left">
+        <div class="kicker">ML & Generative AI — BUILDER</div>
+        <h1>Hi — I’m Praneeth. I ship deployable ML pipelines & small LLM prototypes.</h1>
+        <p class="lead">Not research for the shelf — prototypes that run as APIs and actually solve user problems. I focus on reproducible pipelines, clean integrations, and short, testable case studies.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="/resume_Praneeth_Sai.pdf" target="_blank" rel="noopener noreferrer">Download Résumé</a>
+          <a class="btn btn-ghost" href="mailto:spraneeth698@gmail.com" rel="noopener noreferrer">Email</a>
+        </div>
+
+        <div style="margin-top:14px; color:var(--muted); font-size:13px;">
+          Available for internships & freelance · BE (AI & ML) 2021–2025
+        </div>
+      </div>
+
+      <div class="portrait-wrap">
+        <!-- HOST THIS IMAGE IN /assets/me.webp -->
+        <img class="portrait" src="/assets/me.webp" alt="Portrait — Praneeth Sai" width="560" height="560" loading="lazy">
+      </div>
+    </header>
+
+    <!-- MAIN GRID -->
+    <div class="grid">
+      <main>
+        <section id="projects" class="projects" aria-labelledby="projects-heading">
+          <h2 id="projects-heading" style="margin:0 0 12px 0; color:var(--text);">Selected projects — prototypes & case studies</h2>
+
+          <!-- Project 1 -->
+          <div class="project" role="article" aria-labelledby="p1">
+            <div style="flex:1;">
+              <h3 id="p1"><a href="https://github.com/PraneethSai24/electric-motor-pred" target="_blank" rel="noopener noreferrer">Electric Motor Failure Prediction</a></h3>
+              <div class="meta">
+                <span class="pill">Python</span><span class="pill">scikit-learn</span><span class="pill">ML Pipelines</span>
+              </div>
+              <div class="small-muted">Role: data cleaning, feature engineering, CI-ready pipeline. Result: reduced false-positive alarms by ~20% (cross-val). <a href="/case-studies/motor-prediction.html" rel="noopener">Read case study</a></div>
+            </div>
+
+            <div class="project-ctas">
+              <a class="btn btn-ghost" href="https://github.com/PraneethSai24/electric-motor-pred" target="_blank" rel="noopener noreferrer">Code</a>
+              <a class="btn btn-primary" href="/case-studies/motor-prediction.html">Case study</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project" role="article" aria-labelledby="p2">
+            <div style="flex:1;">
+              <h3 id="p2"><a href="https://github.com/PraneethSai24/college-buddy-bot" target="_blank" rel="noopener noreferrer">College Buddy Bot — Multi-channel student assistant</a></h3>
+              <div class="meta">
+                <span class="pill">FastAPI</span><span class="pill">Hugging Face</span><span class="pill">MongoDB</span>
+              </div>
+              <div class="small-muted">Role: API + model integration, routing, deployment with Docker. Result: prototype answers ~70% of common FAQs; demo link and architecture in case study.</div>
+            </div>
+
+            <div class="project-ctas">
+              <a class="btn btn-ghost" href="https://github.com/PraneethSai24/college-buddy-bot" target="_blank" rel="noopener noreferrer">Code</a>
+              <a class="btn btn-primary" href="/case-studies/college-buddy.html">Demo & case</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project" role="article" aria-labelledby="p3">
+            <div style="flex:1;">
+              <h3 id="p3"><a href="https://github.com/PraneethSai24/music-genre-classification" target="_blank" rel="noopener noreferrer">Music Genre Classifier</a></h3>
+              <div class="meta"><span class="pill">TensorFlow</span><span class="pill">LibROSA</span></div>
+              <div class="small-muted">Reproducible training pipeline & augmentation experiments. Includes notebook, evaluation scripts, and deployment notes.</div>
+            </div>
+            <div class="project-ctas">
+              <a class="btn btn-ghost" href="https://github.com/PraneethSai24/music-genre-classification" target="_blank" rel="noopener noreferrer">Code</a>
+              <a class="btn btn-primary" href="/case-studies/music-genre.html">Read</a>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section style="margin-top:18px; background:var(--glass); padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);">
+          <h4 style="margin:0 0 8px 0; color:var(--text)">Experience</h4>
+          <div style="color:var(--muted); font-size:14px;">Cognibot — Machine Learning Trainee (Jan–Apr 2024). Built preprocessing pipelines and model evaluation flows used in production tests.</div>
+        </section>
+      </main>
+
+      <!-- SIDE COLUMN -->
+      <aside>
+        <div class="side-card">
+          <h4>Contact</h4>
+          <div style="color:var(--muted); font-size:14px; margin-top:8px;">
+            Email: <a href="mailto:spraneeth698@gmail.com" rel="noopener noreferrer">spraneeth698@gmail.com</a><br>
+            GitHub: <a href="https://github.com/PraneethSai24" target="_blank" rel="noopener noreferrer">PraneethSai24</a><br>
+            X: <a href="https://x.com/Scar_head__" target="_blank" rel="noopener noreferrer">@Scar_head__</a>
+          </div>
+        </div>
+
+        <div class="side-card" style="margin-top:12px;">
+          <h4>Skills</h4>
+          <div class="skill-list" aria-hidden="false">
+            <span class="skill">Python</span><span class="skill">Oracle SQL</span><span class="skill">FastAPI</span>
+            <span class="skill">TensorFlow</span><span class="skill">PyTorch</span><span class="skill">Docker</span>
+            <span class="skill">Git</span><span class="skill">HTML/CSS/JS</span>
+          </div>
+        </div>
+
+        <div class="side-card" style="margin-top:12px;">
+          <h4>Quick links</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <a class="btn btn-ghost" href="/resume_Praneeth_Sai.pdf" target="_blank" rel="noopener noreferrer">Download Résumé</a>
+            <a class="btn btn-ghost" href="https://github.com/PraneethSai24" target="_blank" rel="noopener noreferrer">View GitHub</a>
+            <a class="btn btn-ghost" href="/notes.html">Notes & experiments</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>© <span id="year">2025</span> Praneeth Sai · <span style="color:var(--muted)">Built with intent, not templates</span></div>
+    </footer>
+  </div>
+
+  <script>
+    // current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
