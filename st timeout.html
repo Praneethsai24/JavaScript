@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="color">Change color</button>
+    <button id="no-color">don't Change</button>
+    <script>
+        let colorBtn = document.getElementById("color")
+        let nocolorBtn = document.getElementById("no-color")
+
+        let timeout = null
+
+        colorBtn.addEventListener("click", () =>{
+            timeout = setTimeout(() =>{
+                document.body.style.backgroundColor ="green"
+            }, 1000)
+        })
+
+        nocolorBtn.addEventListener("click", () =>{
+            clearTimeout(timeout)
+        })
+    </script>
+</body>
+</html>
