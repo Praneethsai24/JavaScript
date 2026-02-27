@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent" style="background-color: brown;">
+        <button id="btn1">1</button>
+        <button id="btn2">2</button>
+        <button id="btn3">3<//button>
+    </div>
+    <script>
+        let parentTag = document.getElementById("parent")
+
+        parentTag.addEventListener("click", (event) =>{
+            if (event.target.tagName =="BUTTON") {
+                console.log(event.target.id + "is clicked")
+            }
+        })
+    </script>
+</body>
+</html>
