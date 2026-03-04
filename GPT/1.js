@@ -8,8 +8,10 @@
 
 const name = "Pranee"
 let age = 20;
+const country = "India"
 
 console.log(name);
 console.log(typeof(name));
 console.log(age);
 console.log(typeof(age));
+console.log(`My name is ${name}, I am ${age} years old, and you live in ${country}`)
